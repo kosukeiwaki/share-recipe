@@ -30,13 +30,16 @@
     border-radius: 5px;
 
     .account-page__inner--left, .account-page__inner--right {
-      width: 50%;
+      width: 70%;
     }
+    .point{
+      width: 50%;
     &:after {
       clear: both;
       content: "";
       display: block;
     }
+  }
   }
 
   .account-page__header {
@@ -51,7 +54,7 @@
         display: block;
         width: 60px;
         margin-top: 5px;
-        border-bottom: 1px solid #38aef0;
+        border-bottom: 1px solid burlywood;
       }
     }
 
@@ -107,7 +110,7 @@
     float: left;
     margin-top: 20px;
     color: #fff;
-    background-color: #38aef0;
+    background-color: burlywood;
   }
 
   .field-label {
