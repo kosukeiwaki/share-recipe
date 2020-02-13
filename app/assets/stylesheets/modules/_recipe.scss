@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+
+.body{
+  background-color: #fff8dc	;
+
+  .header{
+    background-color: #ffffff;
+    height:30px;
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    border-bottom: burlywood solid 1px;
+    &__left{
+      line-height: 30px;
+
+    }
+    &__right{
+      line-height: 30px;
+      font-size: 15px;
+    }
+  }
+
+  // ロゴとヘッダーとポスト機能
+  .section1{
+    width: 60vw;
+    height: 70px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    .logo{
+      width: 200px;
+      height: 60px;
+      margin: 5px 0;
+    }
+
+    .search-box{
+      background-color: red;
+      width: 200px;
+      height:50px;
+      margin: 5px 0;
+    }
+
+    .post{
+      background-color: green;
+      width: 200px;
+      height:50px;
+      margin: 5px 0;
+    }
+  }
+
+  // JSでスライダーを作成する
+  .section2{
+    width: 60vw;
+    height: 200px;
+    margin: 0 auto;
+
+    .weekrecipe{
+      width: 90%;
+      height: 200px;
+      background-color: green;
+      margin: 0 auto;
+
+    }
+  }
+
+  // バーを4つ作る
+  .section3{
+    width: 60vw;
+    height: 480px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    .servicesBar{
+      height: 450px;
+      width: 200px;
+      margin: 5px 0;
+      background-color: green;
+    }
+
+    .centerBar{
+      margin: 5px 0;
+      width: 400px;
+      height: 450px;
+      background-color: green;
+      margin-bottom:5px;
+    }
+
+    .rankingBar{
+      height: 450px;
+      margin: 5px 0;
+      background-color: green;
+      width: 200px;
+    }
+  }
+
+  .section4{
+    width: 60vw;
+    height: 320px;
+    margin: 0 auto;
+    
+    .japanMother{
+      background-color: green;
+      height: 300px;
+      width: 60vw;
+      margin-bottom: 20px;
+    }
+  }
+
+  .fotter{
+    height: 70px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ffffff;
+    line-height: 70px;
+    border-top:burlywood solid 1px ;
+  }
+}

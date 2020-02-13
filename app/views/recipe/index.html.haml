@@ -1,0 +1,43 @@
+.body
+
+  .header
+    .header__left
+      memory-recipes
+    .header__right
+      ログイン
+      メモレピとは
+
+  %section.section1
+    .logo
+      LOGOが入る予定
+
+    .search-box
+      -# = form_tag(url: '#', local: true, method: :get, class: "search-form") do |f|
+      -#   = f.text_field :keyword, placeholder: "レシピを検索する", class: "search-input" 
+      -#   = f.submit "検索", class: "search-btn" 
+    .post
+      ここからレシピを投稿します
+
+  %section.section2
+    .weekrecipe
+      スライダーで季節のご当地料理を流します
+
+  %section.section3
+    .servicesBar
+      ここにフォローしている人が入ります。名前を押すと、トップページに遷移します。
+      %ul
+        %li 安倍
+        %li 鳩山
+        %li 菅
+
+    .centerBar
+      ここにはニュースが入ります。ニュースはまぁフォローしている人のレシピが入ります
+    .rankingBar
+      自分の過去にみたレシピを一覧で表示します。
+  %section.section4
+    .japanMother
+      日本全国の母の味を楽しめます。※ここは余裕があれば実装しますが、基本的にはなしの方向で
+
+  .fotter
+    2020　®️all things you can imagin will be real
+
