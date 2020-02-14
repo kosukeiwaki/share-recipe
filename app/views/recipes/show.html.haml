@@ -1,12 +1,35 @@
-.contents.row
-  .content_post{:style => "background-image: url(#{@recipe.image});"}
-    .more
-      %span= image_tag 'arrow_top.png'
-      %ul.more_list
-        %li
-          = link_to '編集', "/recipes/#{@recipe.id}/edit", method: :get
-        %li
-          = link_to '削除', "/recipes/#{@recipe.id}", method: :delete
-    = simple_format(@recipe.text)
-    %span.name
-      = @recipe.name
+.header
+.main
+
+  .contents.row
+    .content_post{:style => "background-image: url(#{@recipe.image});"}
+      .more
+        %span= image_tag 'arrow_top.png'
+        %ul.more_list
+          %li
+            = link_to '編集', "/recipes/#{@recipe.id}/edit", method: :get
+          %li
+            = link_to '削除', "/recipes/#{@recipe.id}", method: :delete
+      = simple_format(@recipe.text)
+      %span.name
+        = @recipe.name
+
+  .container
+  - if current_user
+    -# = form_for[@recipe, @comment] do |f|
+    -#   = f.text_area :text, placeholder: "コメントする", rows: "2"
+    -#   = f.submit "コメントを送信"
+  - else
+    %strong
+      %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+
+  .comments
+  %h4 ＜コメント一覧＞
+  - if @comments
+    - @comments.each do |comment|
+      %p
+        %strong
+          = link_to comment.user.name, "/users/#{comment.user_id}"
+          ：
+        = comment.text
+

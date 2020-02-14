@@ -17,9 +17,7 @@
       = image_tag "/images/login.png", size: "100x100", alt: "test"
 
     .search-box
-      -# = form_tag(url: '#', local: true, method: :get, class: "search-form") do |f|
-      -#   = f.text_field :keyword, placeholder: "レシピを検索する", class: "search-input" 
-      -#   = f.submit "検索", class: "search-btn" 
+      レシピを検索 
     .post
       %a.post{:href => "/recipes/new"} 
         =icon('fas', 'edit')
@@ -64,7 +62,12 @@
                 思い出：
                 = recipe.text             
                 .comment
-                  = icon('fas', 'heart')
+                  -# -if Like.find(user_id: @current_user.id, recipe_id: @recipe.id) 
+                  -#   =link_to "/likes/#{@recipe.id}/destroy", {method: "post"} do
+                  -#     =icon("fas","heart")  
+                  -# -else 
+                  -#   =link_to "/likes/#{@recipe.id}/create", {method: "post"} do
+                  -#     =icon("fas","heart") 
                   = link_to 'レシピを見る', "/recipes/#{recipe.id}", method: :get
       
 

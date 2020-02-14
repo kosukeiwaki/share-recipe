@@ -1,0 +1,19 @@
+.header{
+  height: 30px;
+  border-bottom:2px solid burlywood;
+}
+
+.main{
+  background-color:#fff8dc;
+  height: 100vh;
+  display:flex;
+  align-self:center;
+
+  .contents{
+    height: 500px;
+    width:500px;
+    margin:0 auto;
+
+  }
+
+}
