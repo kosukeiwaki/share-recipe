@@ -11,15 +11,16 @@
 
   %section.section1
     .logo
-      LOGOが入る予定
+      = image_tag "/images/login.png", size: "100x100", alt: "test"
 
     .search-box
       -# = form_tag(url: '#', local: true, method: :get, class: "search-form") do |f|
       -#   = f.text_field :keyword, placeholder: "レシピを検索する", class: "search-input" 
       -#   = f.submit "検索", class: "search-btn" 
     .post
-      =icon('fas', 'edit')
-      %p今日のご飯をシェア
+      %a.post{:href => "/recipes/new"} 
+        =icon('fas', 'edit')
+        %p今日のご飯をシェア
 
   %section.section2
     .weekrecipe
@@ -35,57 +36,30 @@
 
     .centerBar
       .postBox
-        -@rexipes.each do |recipe| 
-        .recipeHeader
-          = recipe.name
-          .time
-            = recipe.created_at.strftime("%Y年%m月%d日 %H時%M分")
-        .recipeDetail
-          .recipePic
-            = recipe.image
-          .recipeBox
-            .recipeTitle
-              = recipe.name
-            .recipememory
-              = recipe.text             
-              .comment
-                レシピを見る
-      .postBox
-        .recipeHeader
-          〇〇さんのご飯
-          .time
-            2020/3/4
-        .recipeDetail
-          .recipePic
-            ここに写真が入ります
-          .recipeBox
-            .recipeTitle
-              %h2 今日は家族でハンバーグ
-            .recipememory
-              今日は、家族でハンバーグを食べました。美味しかったなぁ。              
-              .comment
-                レシピを見る
-      .postBox
-        .recipeHeader
-          〇〇さんのご飯
-          .time
-            2020/3/4
-        .recipeDetail
-          .recipePic
-            ここに写真が入ります
-          .recipeBox
-            .recipeTitle
-              %h2 今日は家族でハンバーグ
-            .recipememory
-              今日は、家族でハンバーグを食べました。美味しかったなぁ。              
-              .comment
-                レシピを見る
-
+        - @recipes.each do |recipe| 
+          .recipeHeader
+            = recipe.name
+            さんのご飯
+            .time
+              = recipe.created_at.strftime("%Y年%m月%d日 %H時%M分")
+          .recipeDetail
+            .recipePic
+              .recipeImage{:style => "background-image: url(#{recipe.image});"}
+            .recipeBox
+              .recipeTitle
+                タイトル：
+                = recipe.title
+              .recipememory
+                詳細：
+                = recipe.text             
+                .comment
+                  レシピを見る
+      
 
   %section.section4
     .japanMother
       日本全国の母の味を楽しめます。※ここは余裕があれば実装しますが、基本的にはなしの方向で
 
   .fotter
-    2020　®️all things you can imagin will be real
+    2022 ®️all things you can imagin will be real
 
