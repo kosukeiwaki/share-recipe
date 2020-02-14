@@ -1,0 +1,90 @@
+.body
+
+  .header
+    .header__left
+      = current_user.name
+      さんのマイページ
+    .header__right
+      = link_to edit_user_path(current_user) do
+        ユーザー情報変更
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
+
+  %section.section1
+    .logo
+      LOGOが入る予定
+
+    .search-box
+      -# = form_tag(url: '#', local: true, method: :get, class: "search-form") do |f|
+      -#   = f.text_field :keyword, placeholder: "レシピを検索する", class: "search-input" 
+      -#   = f.submit "検索", class: "search-btn" 
+    .post
+      =icon('fas', 'edit')
+      %p今日のご飯をシェア
+
+  %section.section2
+    .weekrecipe
+      スライダーで季節のご当地料理を流します
+
+  %section.section3
+    .servicesBar
+      お気に入りした投稿のタイトルをここに貼ります。
+      %ul
+        %li お肉たっぷりハンバーグ！
+        %li 野菜だけでお鍋！
+        %li アンパンマンお弁当！
+
+    .centerBar
+      .postBox
+        .recipeHeader
+          〇〇さんのご飯
+          .time
+            2020/3/4
+        .recipeDetail
+          .recipePic
+            ここに写真が入ります
+          .recipeBox
+            .recipeTitle
+              %h2 今日は家族でハンバーグ
+            .recipememory
+              今日は、家族でハンバーグを食べました。美味しかったなぁ。              
+              .comment
+                レシピを見る
+      .postBox
+        .recipeHeader
+          〇〇さんのご飯
+          .time
+            2020/3/4
+        .recipeDetail
+          .recipePic
+            ここに写真が入ります
+          .recipeBox
+            .recipeTitle
+              %h2 今日は家族でハンバーグ
+            .recipememory
+              今日は、家族でハンバーグを食べました。美味しかったなぁ。              
+              .comment
+                レシピを見る
+      .postBox
+        .recipeHeader
+          〇〇さんのご飯
+          .time
+            2020/3/4
+        .recipeDetail
+          .recipePic
+            ここに写真が入ります
+          .recipeBox
+            .recipeTitle
+              %h2 今日は家族でハンバーグ
+            .recipememory
+              今日は、家族でハンバーグを食べました。美味しかったなぁ。              
+              .comment
+                レシピを見る
+
+
+  %section.section4
+    .japanMother
+      日本全国の母の味を楽しめます。※ここは余裕があれば実装しますが、基本的にはなしの方向で
+
+  .fotter
+    2020　®️all things you can imagin will be real
+

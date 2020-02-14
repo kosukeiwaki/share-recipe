@@ -1,0 +1,38 @@
+.header
+  .rightHeader
+  .leftHeader
+
+
+#account-page.account-page
+  .account-page__inner.clearfix
+    .account-page__inner--left.account-page__header
+      %h2 シェアレシピへようこそ
+      %h5 新規アカウントの作成
+      = render "devise/shared/links"
+    .account-page__inner--right.user-form
+      .point
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .field
+            .field-label
+              = f.label :なまえを入力してください
+            .field-input
+              = f.text_field :name, autofocus: true
+          .field
+            .field-label
+              = f.label :メールアドレスを入力してください
+            .field-input
+              = f.email_field :email
+          .field
+            .field-label
+              = f.label :パスワードを入力してください
+              %i (英数字8文字)
+            .field-input
+              = f.password_field :password, autocomplete: "off"
+          .field
+            .field-label
+              = f.label :パスワードの確認
+            .field-input
+              = f.password_field :password_confirmation, autocomplete: "off"
+          .actions
+            = f.submit "シェアレシピを始める！", class: 'btn'
