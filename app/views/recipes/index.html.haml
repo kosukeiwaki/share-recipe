@@ -32,15 +32,12 @@
       .favorite
         お気に入り思い出レシピ
       %ul 
-        %li お肉たっぷりハンバーグ！
-        %li 野菜だけでお鍋！
-        %li アンパンマンお弁当！
+        
       .favorite
-        永久保存！おかんレシピ
+        過去のご飯
       %ul
-        %li お肉たっぷりハンバーグ！
-        %li 野菜だけでお鍋！
-        %li アンパンマンお弁当！
+        -current_user.recipes.each do|recipe|
+          %li=link_to 'recipe.title','recipe/'do
 
 
     .centerBar
@@ -62,7 +59,7 @@
                 思い出：
                 = recipe.text             
                 .comment
-                  -# -if Like.find(user_id: @current_user.id, recipe_id: @recipe.id) 
+                  -# -if Like.find_by(user_id: @current_user.id, recipe_id: @recipe.id) 
                   -#   =link_to "/likes/#{@recipe.id}/destroy", {method: "post"} do
                   -#     =icon("fas","heart")  
                   -# -else 

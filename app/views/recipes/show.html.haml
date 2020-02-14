@@ -1,18 +1,20 @@
 .header
 .main
-
-  .contents.row
-    .content_post{:style => "background-image: url(#{@recipe.image});"}
+  .postBox
+    .contents.row
+      = @recipe.name
+      さんが
+      = @recipe.created_at.strftime("%Y年%m月%d日")
+      に食べたご飯
+      .content_post{:style => "background-image: url(#{@recipe.image});"}
+      = simple_format(@recipe.title)
+      = simple_format(@recipe.text)
       .more
-        %span= image_tag 'arrow_top.png'
         %ul.more_list
           %li
             = link_to '編集', "/recipes/#{@recipe.id}/edit", method: :get
           %li
             = link_to '削除', "/recipes/#{@recipe.id}", method: :delete
-      = simple_format(@recipe.text)
-      %span.name
-        = @recipe.name
 
   .container
   - if current_user
@@ -32,4 +34,12 @@
           = link_to comment.user.name, "/users/#{comment.user_id}"
           ：
         = comment.text
+  - if current_user.already_liked?(@recipe)
+    = button_to 'いいねを取り消す', recipe_like_path(@recipe), method: :delete
+  - else
+    = button_to 'いいね', recipe_likes_path(@recipe)
+  -# %h2 いいねしたユーザー
+  -# - @recipe.liked_users.each do |user|
+  -#   %li= user.email
+
 
