@@ -18,21 +18,22 @@
     }
     &__right{
       line-height: 30px;
-      font-size: 15px;
+      font-size: 12px;
+      // width:200px;
     }
   }
 
   // ロゴとヘッダーとポスト機能
   .section1{
     width: 60vw;
-    height: 70px;
+    height: 60px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 
     .logo{
       width: 200px;
-      height: 60px;
+      height: 50px;
       margin: 5px 0;
     }
 
@@ -44,10 +45,15 @@
     }
 
     .post{
-      background-color: green;
+      background-color: #98fb98;
       width: 200px;
       height:50px;
       margin: 5px 0;
+      border-radius: 5px;
+      border: black 1px solid;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 
@@ -69,31 +75,63 @@
   // バーを4つ作る
   .section3{
     width: 60vw;
-    height: 480px;
+    height: 600px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 
     .servicesBar{
-      height: 450px;
+      height: 550px;
       width: 200px;
       margin: 5px 0;
-      background-color: green;
+      background-color: #ffffff;
+      border: burlywood 2px solid;
+      border-radius: 10px;
     }
 
     .centerBar{
       margin: 5px 0;
-      width: 400px;
-      height: 450px;
-      background-color: green;
+      width: 640px;
+      height: 550px;
+      background-color: #ffffff;
+      border: burlywood 2px solid;
+      border-radius: 10px;
       margin-bottom:5px;
-    }
+      overflow:scroll;
+      .postBox{
+        margin: 10px;
+        height: 40%;
+        .recipeHeader{
+          display: flex;
+          justify-content: start;
+          color: white;
+          background-color: #f4a460;
+          border-radius: 3px;
+          width: 180px;
+          height: 30px;
+          line-height: 30px;
+          padding-left: 5px;
+          margin-bottom: 3px;
+        }
+        .recipeDetail{
+          display: flex;
+          justify-content: start;
+          .recipePic{
+            height: 150px;
+            width:300px;
+            background-color: burlywood;
+          }
+          .recipeTitle{
+            font-size: 25px;
+          }
+          .recipefoods{
 
-    .rankingBar{
-      height: 450px;
-      margin: 5px 0;
-      background-color: green;
-      width: 200px;
+            .ingre{
+              height: 100px;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -103,7 +141,8 @@
     margin: 0 auto;
     
     .japanMother{
-      background-color: green;
+      background-color: #ffffff;
+      border: burlywood 2px solid;
       height: 300px;
       width: 60vw;
       margin-bottom: 20px;

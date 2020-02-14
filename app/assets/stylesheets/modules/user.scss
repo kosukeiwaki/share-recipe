@@ -19,15 +19,17 @@
   background-color: #fff8dc	;
   height: 100vh;
   width: 100vw;
-  padding-top: 60px;
+  padding-top: 30px;
   .account-page__inner {
     background-image: url();
     width: 980px;
-    padding: 60px;
+    padding: 50px 100px 100px 100px;
     margin: 0 auto;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
+    background-image: url(../../images/veiwbg.jpg);
+
 
     .account-page__inner--left, .account-page__inner--right {
       width: 70%;
@@ -65,7 +67,6 @@
     }
 
     .btn {
-      margin-top: 20px;
       color: #fff;
       background-color: #ccc;
       font-size: 14px;
