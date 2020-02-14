@@ -1,0 +1,12 @@
+.contents.row
+  .content_post{:style => "background-image: url(#{@recipe.image});"}
+    .more
+      %span= image_tag 'arrow_top.png'
+      %ul.more_list
+        %li
+          = link_to '編集', "/recipes/#{@recipe.id}/edit", method: :get
+        %li
+          = link_to '削除', "/recipes/#{@recipe.id}", method: :delete
+    = simple_format(@recipe.text)
+    %span.name
+      = @recipe.name

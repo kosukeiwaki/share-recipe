@@ -1,0 +1,8 @@
+.container
+  = form_for[@recipe] do |f|
+    %h3
+      投稿する
+    = f.text_field :name, placeholder: "タイトル"
+    = f.text_field :image, placeholder: "ご飯の写真"
+    = f.text_area :text, placeholder: "ご飯と思い出" , rows: "10"
+    = f.submit "ご飯と思い出をシェアする"

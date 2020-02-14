@@ -5,9 +5,12 @@
       = current_user.name
       さんのマイページ
     .header__right
-      = link_to edit_user_path(current_user) do
+      = link_to edit_user_path(current_user),class:'edit_user' do
+        =icon('fas','user-cog')
         ユーザー情報変更
-      = link_to "ログアウト", destroy_user_session_path, method: :delete
+      = link_to destroy_user_session_path(current_user), method: :delete do
+        =icon('fas','sign-out-alt')
+        ログアウト
 
   %section.section1
     .logo
@@ -28,20 +31,28 @@
 
   %section.section3
     .servicesBar
-      お気に入りした投稿のタイトルをここに貼ります。
+      .favorite
+        お気に入り思い出レシピ
+      %ul 
+        %li お肉たっぷりハンバーグ！
+        %li 野菜だけでお鍋！
+        %li アンパンマンお弁当！
+      .favorite
+        永久保存！おかんレシピ
       %ul
         %li お肉たっぷりハンバーグ！
         %li 野菜だけでお鍋！
         %li アンパンマンお弁当！
+
 
     .centerBar
       .postBox
         - @recipes.each do |recipe| 
           .recipeHeader
             = recipe.name
-            さんのご飯
+            さんの今日のご飯
             .time
-              = recipe.created_at.strftime("%Y年%m月%d日 %H時%M分")
+              = recipe.created_at.strftime("%Y年%m月%d日")
           .recipeDetail
             .recipePic
               .recipeImage{:style => "background-image: url(#{recipe.image});"}
@@ -50,10 +61,11 @@
                 タイトル：
                 = recipe.title
               .recipememory
-                詳細：
+                思い出：
                 = recipe.text             
                 .comment
-                  レシピを見る
+                  = icon('fas', 'heart')
+                  = link_to 'レシピを見る', "/recipes/#{recipe.id}", method: :get
       
 
   %section.section4
@@ -62,4 +74,3 @@
 
   .fotter
     2022 ®️all things you can imagin will be real
-
