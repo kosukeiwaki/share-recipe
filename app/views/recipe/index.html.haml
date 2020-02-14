@@ -35,18 +35,19 @@
 
     .centerBar
       .postBox
+        -@rexipes.each do |recipe| 
         .recipeHeader
-          〇〇さんのご飯
+          = recipe.name
           .time
-            2020/3/4
+            = recipe.created_at.strftime("%Y年%m月%d日 %H時%M分")
         .recipeDetail
           .recipePic
-            ここに写真が入ります
+            = recipe.image
           .recipeBox
             .recipeTitle
-              %h2 今日は家族でハンバーグ
+              = recipe.name
             .recipememory
-              今日は、家族でハンバーグを食べました。美味しかったなぁ。              
+              = recipe.text             
               .comment
                 レシピを見る
       .postBox
