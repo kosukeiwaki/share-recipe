@@ -1,21 +1,29 @@
-= form_with(url: recipes_searches_path, local: true, method: :get, class: "search-form") do |form|
-  = form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input"
-  = form.submit "検索", class: "search-btn"
-.contents.row
-  - @recipes.each do |recipe|
-    .recipeHeader
-      = recipe.name
-      さんの今日のご飯
-      .time
-        = recipe.created_at.strftime("%Y年%m月%d日")
-    .recipeDetail
-      .recipeImage{:style => "background-image: url(#{recipe.image});"}
-      .recipeBox
-        .recipeTitle
-          料理名：
-          = recipe.title
-        .recipememory
-          思い出：
-          = recipe.text             
-        .comment
-          = link_to '詳しく見る', "/recipes/#{recipe.id}", method: :get
+.header
+
+.main
+  .search-box
+    = form_tag recipes_searches_path,class:'search-text', method: :get do |f|
+      = text_field_tag :search
+      = submit_tag "検索", class: "search-btn"
+  .centerBar
+    .backbtn
+      =link_to recipes_path(current_user) do
+        =icon("fas", "backspace", class:"back")
+    .postBox
+      - @recipes.each do |recipe|
+        .recipeHeader
+          = recipe.name
+          さんの今日のご飯
+          .time
+            = recipe.created_at.strftime("%Y年%m月%d日")
+        .recipeDetail
+          .recipeImage{:style => "background-image: url(#{recipe.image});"}
+          .recipeBox
+            .recipeTitle
+              料理名：
+              = recipe.title
+            .recipememory
+              思い出：
+              = recipe.text             
+            .comment
+              = link_to '詳しく見る', "/recipes/#{recipe.id}", method: :get

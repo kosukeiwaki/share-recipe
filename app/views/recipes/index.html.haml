@@ -17,9 +17,9 @@
       = image_tag "logo.png", size: "200x50", alt: "test"
 
     .search-box
-      = form_with recipes_searches_path, method: :get do |f|
-        = f.text_field :search, placeholder: "レシピを検索する"
-        = f.submit "検索", class: "search-btn"
+      = form_tag recipes_searches_path,class:'search-text', method: :get do |f|
+        = text_field_tag :search
+        = submit_tag "検索", class: "search-btn"
 
     .post
       %a.post{:href => "/recipes/new"} 
@@ -52,19 +52,22 @@
       .favorite
         お気に入りのレシピ
       %ul 
-        -if (@likes)
+        -if @likes.present?
           - @likes.each do |like|
             - recipe = Recipe.find_by(id: like.recipe_id)
             %li= link_to recipe.title, "/recipes/#{recipe.id}", method: :get
         -else
-          お気に入りのレシピはありません。
+          no favorite
       
         
       .favorite
         過去のご飯
       %ul
-        -current_user.recipes.each do|recipe|
-          %li= link_to recipe.title, "/recipes/#{recipe.id}", method: :get
+        - if @recipes.present?
+          -current_user.recipes.each do|recipe|
+            %li= link_to recipe.title, "/recipes/#{recipe.id}", method: :get
+        -else
+          no recipes
 
 
     .centerBar
@@ -76,7 +79,8 @@
             .time
               = recipe.created_at.strftime("%Y年%m月%d日")
           .recipeDetail
-            = image_tag recipe.image, size: "300x140" if recipe.image.present?
+            .recipeImage
+              = image_tag recipe.image, size: "300x180" if recipe.image.present?
             -# .recipeImage{:style => "background-image: url(#{recipe.image});"}
             .recipeBox
               .recipeTitle

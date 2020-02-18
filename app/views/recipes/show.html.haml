@@ -9,7 +9,7 @@
       さんが
       = @recipe.created_at.strftime("%Y年%m月%d日")
       に食べたご飯
-      .content_post{:style => "background-image: url(#{@recipe.image});"}
+      = image_tag @recipe.image, size: "500x300" if @recipe.image.present?
       = simple_format(@recipe.title)
       = simple_format(@recipe.text)
       .more

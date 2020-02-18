@@ -5,6 +5,7 @@ class Recipe < ApplicationRecord
   has_many :liked_users, through: :likes
   has_many :likes
   belongs_to :user
+  mount_uploader :image, ImageUploader
 
   def self.search(search)
     return Recipe.all unless search
