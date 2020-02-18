@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def destroy
     user = User.find(user_params)
-    if user.destroy
+    if user.destroy(user_params)
       redirect_to root_path
     end
   end

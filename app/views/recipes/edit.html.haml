@@ -1,13 +1,16 @@
 .header
 .main
   .postBox
+    .backbtn
+      =link_to recipes_path(current_user) do
+        =icon("fas", "backspace", class:"back")
     .contents.row
       .container
-        -# = form_with(model: @recipe, local: true) do |f|
-        -#   %h3
-        -#     編集する
-        -#   = f.text_field :name, placeholder: "なまえ"
-        -#   = f.text_field :title, placeholder: "料理名"
-        -#   = f.text_field :image, placeholder: "画像"
-        -#   = f.text_area :text, placeholder: "思い出" , rows: "10"
-        -#   = f.submit "編集する"
+        - if current_user
+          = form_for @recipe do |f|
+            = f.text_area :title, placeholder: "料理名を変更する"
+            = f.text_area :text, placeholder: "思い出を変更する", rows: "2"
+            = f.submit "編集"
+        - else
+          %strong
+            %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※

@@ -37,7 +37,7 @@
     .logo{
       width: 200px;
       height: 50px;
-      margin: 5px 0;
+      margin: 10px 0;
     }
 
     .search-box{
@@ -52,34 +52,53 @@
     }
 
     .post{
-      background-color: #98fb98;
+      background-color: #ffffff;
       width: 200px;
       height:50px;
       margin: 5px 0;
       border-radius: 5px;
-      border: black 1px solid;
+      border: burlywood 2px solid;
       display: flex;
       justify-content: center;
       align-items: center;
       text-decoration: none;
-      color:white;
+      color:black;
     }
   }
 
   // JSでスライダーを作成する
   .section2{
-    width: 60vw;
-    height: 170px;
+    width: 620px;
+    height: 190px;
     margin: 0 auto;
 
-    .weekrecipe{
-      width: 90%;
-      height: 170px;
-      background-color: #ffffff;
-      border:solid burlywood 2px;
-      margin: 0 auto;
+  }
 
-    }
+  .modalshow{
+    cursor: pointer;
+  }
+
+  .memoryrecipedetail-modal{  
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  display: none;
+  }
+
+  .modal {
+  position: absolute;
+  top: 20%;
+  left: 34%;
+  background-color: #e6ecf0;
+  padding: 20px 0 40px;
+  border-radius: 10px;
+  width: 450px;
+  height: auto;
+  text-align: center;
   }
 
   // バーを4つ作る
@@ -139,6 +158,7 @@
       border-radius: 10px;
       margin-bottom:5px;
       overflow:scroll;
+      padding: 10px 0;
       .postBox{
         margin: 10px;
         height: 30%;
@@ -163,13 +183,23 @@
         .recipeDetail{
           display: flex;
           justify-content: start;
-          .recipePic{
-            height: 150px;
+          .recipeImage{
+            height: 140px;
             width:300px;
             // background-color: burlywood;
           }
+          .recipeBox{
+            width:300px;
+            height: 150px;
+            margin-left: 5px;
+          }
           .recipeTitle{
             font-size: 25px;
+
+            .recipememory{
+              overflow: hidden;
+            }
+          }
           
             .comment{
               .like-btn-unlike{
@@ -184,7 +214,7 @@
         }
       }
     }
-  }
+  
 
 
   .section4{

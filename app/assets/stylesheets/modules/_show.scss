@@ -7,12 +7,15 @@
 .main{
   background-color:#fff8dc;
   padding:40px;
+  height: 100%;
 
   .postBox{
     width:50%;
     background-color:#ffffff;
     border: solid burlywood 2px;
     margin:0 auto;
+    height: 90%;
+    overflow: scroll;
 
 
     .contents{
@@ -37,6 +40,13 @@
   .comments{
     margin: 0 auto;
 
+  }
+  .like-btn {
+    color: #8899a6;
+  }
+  
+  .like-btn-unlike {
+    color: #ff2581;
   }
 
 }

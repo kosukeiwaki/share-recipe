@@ -1,8 +1,16 @@
-.container
-  =form_for[@recipe] do |f|
-    %h3
-      投稿する
-    = f.text_field :name, placeholder: "タイトル"
-    = f.text_field :image, placeholder: "ご飯の写真"
-    = f.text_area :text, placeholder: "ご飯と思い出" , rows: "10"
-    = f.submit "ご飯と思い出をシェアする"
+.header
+
+.main
+
+  .container
+    .backbtn
+      =link_to recipes_path(current_user) do
+        =icon("fas", "backspace", class:"back")
+    =form_for @recipe do |f|
+      .input-box
+        = f.text_field :title, placeholder: "何を食べたの？", class:"title"
+        = f.label :image, class: 'image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.text_field :text, placeholder: "ご飯と思い出をシェアしよう！" , rows: "10",class:"text"
+      = f.submit "シェアレピ",class:"submit"

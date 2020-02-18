@@ -1,6 +1,9 @@
 .header
 .main
   .postBox
+    .backbtn
+      =link_to recipes_path(current_user) do
+        =icon("fas", "backspace", class:"back")
     .contents.row
       = @recipe.name
       さんが
@@ -16,30 +19,27 @@
           %li
             = link_to '削除', "/recipes/#{@recipe.id}", method: :delete
 
-  .container
-  - if current_user
-    -# = form_for[@recipe, @comment] do |f|
-    -#   = f.text_area :text, placeholder: "コメントする", rows: "2"
-    -#   = f.submit "コメントを送信"
-  - else
-    %strong
-      %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
-
-  .comments
-  %h4 ＜コメント一覧＞
-  - if @comments
-    - @comments.each do |comment|
-      %p
+          
+      .commentBox
+      - if current_user
+        = form_for [@recipe , @recipe.comments.build],id: "new_comment" do |f|
+          = f.text_area :text, placeholder: "コメント", rows: "2",class:"textbox"
+          = f.submit "コメントを送信",class:"form__submit"
+      - else
         %strong
-          = link_to comment.user.name, "/users/#{comment.user_id}"
+          %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+
+      .comments
+      %h4 ＜コメント一覧＞
+      - if @comments
+        - @comments.each do |comment|
+          = comment.user.name
           ：
-        = comment.text
-  - if current_user.already_liked?(@recipe)
-    = button_to 'いいねを取り消す', recipe_like_path(@recipe), method: :delete
-  - else
-    = button_to 'いいね', recipe_likes_path(@recipe)
-  -# %h2 いいねしたユーザー
-  -# - @recipe.liked_users.each do |user|
-  -#   %li= user.email
+          = comment.text
+          %br
+      - if current_user.already_liked?(@recipe)
+        = button_to 'リストから外す', recipe_like_path(@recipe), method: :delete
+      - else
+        = button_to 'お気に入りリストに追加', recipe_likes_path(@recipe)
 
 

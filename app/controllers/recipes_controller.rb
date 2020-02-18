@@ -1,7 +1,8 @@
 class RecipesController < ApplicationController
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.order(created_at: :desc)
+    @likes = Like.where(user_id: current_user.id)
   end
 
   def new
@@ -11,16 +12,18 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
+    @recipe.name = current_user.name
     if @recipe.save
-      redirect_back(fallback_location: root_path)
+      redirect_to root_path
     else
-      redirect_back(fallback_location: root_path)
+      redirect_to root_path
     end
   end
 
   def show
     @recipe = Recipe.find(params[:id])
     @like = Like.new
+    @comments = @recipe.comments.includes(:user)
   end
 
   def destroy
@@ -35,7 +38,7 @@ class RecipesController < ApplicationController
 
   def update
     recipe = Recipe.find(params[:id])
-    recioe.update(recipe_params)
+    recipe.update(recipe_params)
     redirect_to root_path
   end
 

@@ -14,30 +14,57 @@
 
   %section.section1
     .logo
-      = image_tag "/images/login.png", size: "100x100", alt: "test"
+      = image_tag "logo.png", size: "200x50", alt: "test"
 
     .search-box
-      レシピを検索 
+      -# = form_tag(url: search_recipes_path, local: true, method: :get,) do |f|
+      -#   = f.text_field_tag :search, placeholder: "レシピを検索する", 
+      -#   = f.submit "検索", class: "search-btn"
+
     .post
       %a.post{:href => "/recipes/new"} 
         =icon('fas', 'edit')
         %p今日のご飯をシェア
 
   %section.section2
-    .weekrecipe
-      スライダーで季節のご当地料理を流します
+    %div.weekrecipe.detailshow
+      = image_tag "banner.png", size: "610x190", alt: "test",class:'modalshow'
+      .memoryrecipedetail-modal
+        .modal
+          .close-modal
+            =icon("fas", "window-close")
+          こんにちわ。メモリーレシピへようこそ。
+          %br
+          メモリーレシピでは、思い出のレシピを
+          %br
+          シェアする。また残すことで、貴方が未来に
+          %br
+          出会大切な人に思い出と料理を一緒に
+          %br
+          楽しめることを目的としたサイトです。
+          %br
+          %br
+          楽しんでいただけますと幸いです。
+
 
   %section.section3
     .servicesBar
       .favorite
-        お気に入り思い出レシピ
+        お気に入りのレシピ
       %ul 
+        -if @likes
+          - @likes.each do |like|
+            - recipe = Recipe.find_by(id: like.recipe_id)
+            %li= link_to recipe.title, "/recipes/#{recipe.id}", method: :get
+        -else
+          お気に入りのレシピはありません。
+      
         
       .favorite
         過去のご飯
       %ul
         -current_user.recipes.each do|recipe|
-          %li=link_to 'recipe.title','recipe/'do
+          %li= link_to recipe.title, "/recipes/#{recipe.id}", method: :get
 
 
     .centerBar
@@ -49,23 +76,16 @@
             .time
               = recipe.created_at.strftime("%Y年%m月%d日")
           .recipeDetail
-            .recipePic
-              .recipeImage{:style => "background-image: url(#{recipe.image});"}
+            .recipeImage{:style => "background-image: url(#{recipe.image});"}
             .recipeBox
               .recipeTitle
-                タイトル：
+                料理名：
                 = recipe.title
               .recipememory
                 思い出：
                 = recipe.text             
-                .comment
-                  -# -if Like.find_by(user_id: @current_user.id, recipe_id: @recipe.id) 
-                  -#   =link_to "/likes/#{@recipe.id}/destroy", {method: "post"} do
-                  -#     =icon("fas","heart")  
-                  -# -else 
-                  -#   =link_to "/likes/#{@recipe.id}/create", {method: "post"} do
-                  -#     =icon("fas","heart") 
-                  = link_to 'レシピを見る', "/recipes/#{recipe.id}", method: :get
+              .comment
+                = link_to '詳しく見る', "/recipes/#{recipe.id}", method: :get
       
 
   %section.section4
@@ -74,3 +94,12 @@
 
   .fotter
     2022 ®️all things you can imagin will be real
+
+:javascript
+  $('.modalshow').click(function() {
+    $('.memoryrecipedetail-modal').fadeIn();
+  });
+  $('.close-modal').click(function() {
+    $('.memoryrecipedetail-modal').fadeOut();
+  });
+

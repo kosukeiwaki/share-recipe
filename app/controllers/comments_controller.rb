@@ -1,12 +1,13 @@
 class CommentsController < ApplicationController
 
   def create
-    Comment.create(comment_params)
+    comment = Comment.create(comment_params)
+    redirect_to "/recipes/#{comment.recipe.id}"
   end
 
   def show
     @comment = Comment.new
-    @comments = @recipe.comments.includes(:user)
+    @comments = @recipe.comments.includes(:user).order(created_at: :desc)
   end
 
   private
