@@ -28,15 +28,15 @@
       - else
         %strong
           %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
-
-      .comments
       %h4 ＜コメント一覧＞
+      .comments
       - if @comments
         - @comments.each do |comment|
-          = comment.user.name
-          ：
-          = comment.text
-          %br
+          %p
+            = comment.user.name
+            ：
+            = comment.text 
+            %br 
       - if current_user.already_liked?(@recipe)
         = button_to 'リストから外す', recipe_like_path(@recipe), method: :delete
       - else

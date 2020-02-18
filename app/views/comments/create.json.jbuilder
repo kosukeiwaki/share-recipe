@@ -1,3 +1,2 @@
-json.text @commnet.text
-json.use_id @comment.user.id
-json.recipe_id @comment.recipe_id
+json.text  @comment.text
+json.user_name  @comment.user.name

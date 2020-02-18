@@ -8,7 +8,7 @@
       = link_to edit_user_path(current_user),class:'edit_user' do
         =icon('fas','user-cog')
         ユーザー情報変更
-      = link_to destroy_user_session_path(current_user), method: :delete do
+      = link_to new_user_session_url do
         =icon('fas','sign-out-alt')
         ログアウト
 
@@ -17,9 +17,9 @@
       = image_tag "logo.png", size: "200x50", alt: "test"
 
     .search-box
-      -# = form_tag(url: search_recipes_path, local: true, method: :get,) do |f|
-      -#   = f.text_field_tag :search, placeholder: "レシピを検索する", 
-      -#   = f.submit "検索", class: "search-btn"
+      = form_with recipes_searches_path, method: :get do |f|
+        = f.text_field :search, placeholder: "レシピを検索する"
+        = f.submit "検索", class: "search-btn"
 
     .post
       %a.post{:href => "/recipes/new"} 
@@ -52,7 +52,7 @@
       .favorite
         お気に入りのレシピ
       %ul 
-        -if @likes
+        -if (@likes)
           - @likes.each do |like|
             - recipe = Recipe.find_by(id: like.recipe_id)
             %li= link_to recipe.title, "/recipes/#{recipe.id}", method: :get
@@ -76,7 +76,8 @@
             .time
               = recipe.created_at.strftime("%Y年%m月%d日")
           .recipeDetail
-            .recipeImage{:style => "background-image: url(#{recipe.image});"}
+            = image_tag recipe.image, size: "300x140" if recipe.image.present?
+            -# .recipeImage{:style => "background-image: url(#{recipe.image});"}
             .recipeBox
               .recipeTitle
                 料理名：
@@ -87,11 +88,6 @@
               .comment
                 = link_to '詳しく見る', "/recipes/#{recipe.id}", method: :get
       
-
-  %section.section4
-    .japanMother
-      日本全国の母の味を楽しめます。※ここは余裕があれば実装しますが、基本的にはなしの方向で
-
   .fotter
     2022 ®️all things you can imagin will be real
 
