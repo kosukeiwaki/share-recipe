@@ -9,14 +9,14 @@
   padding:40px;
   height: 100%;
 
-  .postBox{
+  .postBoxshow{
     width:50%;
     background-color:#ffffff;
     border: solid burlywood 2px;
     margin:0 auto;
     height: 90%;
     overflow: scroll;
-
+    padding-bottom: 5px;
 
     .contents{
       height: 500px;

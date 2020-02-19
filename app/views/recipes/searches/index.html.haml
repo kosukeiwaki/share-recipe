@@ -3,7 +3,7 @@
 .main
   .search-box
     = form_tag recipes_searches_path,class:'search-text', method: :get do |f|
-      = text_field_tag :search
+      = text_field_tag :keyword," ",id:"search"
       = submit_tag "検索", class: "search-btn"
   .centerBar
     .backbtn
@@ -17,7 +17,8 @@
           .time
             = recipe.created_at.strftime("%Y年%m月%d日")
         .recipeDetail
-          .recipeImage{:style => "background-image: url(#{recipe.image});"}
+          .recipeImage
+            = image_tag recipe.image, size: "300x180" if recipe.image.present?
           .recipeBox
             .recipeTitle
               料理名：

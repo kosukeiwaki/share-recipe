@@ -8,7 +8,7 @@
       = link_to edit_user_path(current_user),class:'edit_user' do
         =icon('fas','user-cog')
         ユーザー情報変更
-      = link_to new_user_session_url do
+      = link_to destroy_user_session_path(current_user),method: :delete do
         =icon('fas','sign-out-alt')
         ログアウト
 
@@ -18,7 +18,7 @@
 
     .search-box
       = form_tag recipes_searches_path,class:'search-text', method: :get do |f|
-        = text_field_tag :search
+        = text_field_tag :keyword,'',class:"search-input",id:"search"
         = submit_tag "検索", class: "search-btn"
 
     .post
