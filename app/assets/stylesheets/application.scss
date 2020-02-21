@@ -1,6 +1,23 @@
+.notifications {
+  color: white;
+  text-align: center;  
+
+  .notice {
+    background-color: lightBlue;
+  }
+
+  .alert {
+    background-color: alert_orange;
+  }
+}
+
+
 @import "reset";
 @import "modules/recipe";
+@import "modules/search";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "modules/user"
+@import "modules/user";
+@import "modules/show";
+@import "modules/new";
 

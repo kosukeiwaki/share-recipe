@@ -15,6 +15,16 @@
   }
 }
 
+.account-box{
+  position: relative;
+}
+
+.image{
+  position: absolute;
+  top:120px;
+  right:5px;
+}
+
 .account-page {
   background-color: #fff8dc	;
   height: 100vh;

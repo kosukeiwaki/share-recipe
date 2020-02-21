@@ -1,0 +1,88 @@
+.header{
+  height: 30px;
+  border-bottom:2px solid burlywood;
+  
+}
+
+.main{
+  background-color:#fff8dc;
+  padding:40px;
+  height: 100%;
+  margin: 0 auto;
+
+  #search{
+    background-color: #ffffff;
+    border:solid burlywood 2px;
+    border-radius: 5px;
+    width: 200px;
+    height:50px;
+    margin: 5px auto;
+    line-height:50px;
+  }
+
+  .centerBar{
+    margin: 5px 0;
+    width: 640px;
+    height: 550px;
+    background-color: #ffffff;
+    border: burlywood 2px solid;
+    border-radius: 10px;
+    margin-bottom:5px;
+    overflow:scroll;
+    padding: 10px 0;
+    margin: 0 auto;
+    .postBox{
+      margin: 10px;
+      height:80%;
+      position: relative;
+      width:90%;
+      .recipeHeader{
+        display: flex;
+        justify-content: start;
+        color: white;
+        background-color: #f4a460;
+        border-radius: 3px;
+        width:300px;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 5px;
+        margin-bottom: 3px;
+        border: solid black 1px;
+        .time{
+          font-size: 8px;
+          padding-left: 5px;
+        }
+      }
+      .recipeDetail{
+        display: flex;
+        justify-content: start;
+        .recipeImage{
+          height: 180px;
+          width:300px;
+          margin-bottom: 5px;
+        }
+        .recipeBox{
+          width:300px;
+          height: 150px;
+          margin-left: 5px;
+        }
+        .recipeTitle{
+          font-size: 25px;
+
+          .recipememory{
+            overflow: hidden;
+          }
+        }
+        
+        .comment{
+          .like-btn-unlike{
+            color:#ff2581;
+            }
+            .like-btn {
+              color: #8899a6;
+            }
+        }
+      }
+    }
+  }
+}

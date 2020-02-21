@@ -1,0 +1,30 @@
+.header
+
+.main
+  .search-box
+    = form_tag recipes_searches_path,class:'search-text', method: :get do |f|
+      = text_field_tag :keyword," ",id:"search"
+      = submit_tag "検索", class: "search-btn"
+  .centerBar
+    .backbtn
+      =link_to recipes_path(current_user) do
+        =icon("fas", "backspace", class:"back")
+    .postBox
+      - @recipes.each do |recipe|
+        .recipeHeader
+          = recipe.name
+          さんの今日のご飯
+          .time
+            = recipe.created_at.strftime("%Y年%m月%d日")
+        .recipeDetail
+          .recipeImage
+            = image_tag recipe.image, size: "300x180" if recipe.image.present?
+          .recipeBox
+            .recipeTitle
+              料理名：
+              = recipe.title
+            .recipememory
+              思い出：
+              = recipe.text             
+            .comment
+              = link_to '詳しく見る', "/recipes/#{recipe.id}", method: :get

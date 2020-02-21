@@ -1,0 +1,45 @@
+.header
+.main
+  .postBoxshow
+    .backbtn
+      =link_to recipes_path(current_user) do
+        =icon("fas", "backspace", class:"back")
+    .contents.row
+      = @recipe.name
+      さんが
+      = @recipe.created_at.strftime("%Y年%m月%d日")
+      に食べたご飯
+      = image_tag @recipe.image, size: "500x300" if @recipe.image.present?
+      = simple_format(@recipe.title)
+      = simple_format(@recipe.text)
+      .more
+        %ul.more_list
+          %li
+            = link_to '編集', "/recipes/#{@recipe.id}/edit", method: :get
+          %li
+            = link_to '削除', "/recipes/#{@recipe.id}", method: :delete
+
+          
+      .commentBox
+      - if current_user
+        = form_for [@recipe , @recipe.comments.build],id: "new_comment" do |f|
+          = f.text_area :text, placeholder: "コメント", rows: "2",class:"textbox"
+          = f.submit "コメントを送信",class:"form__submit"
+      - else
+        %strong
+          %p ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+      %h4 ＜コメント一覧＞
+      .comments
+      - if @comments
+        - @comments.each do |comment|
+          %p
+            = comment.user.name
+            ：
+            = comment.text 
+            %br 
+      - if current_user.already_liked?(@recipe)
+        = button_to 'リストから外す', recipe_like_path(@recipe), method: :delete
+      - else
+        = button_to 'お気に入りリストに追加', recipe_likes_path(@recipe)
+
+
