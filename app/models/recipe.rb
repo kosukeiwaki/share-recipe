@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
   validates :text, presence: true
   validates :title, presence: true
+  validates :image, presence: true
   belongs_to :user
   has_many :comments
   has_many :liked_users, through: :likes

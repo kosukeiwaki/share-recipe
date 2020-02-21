@@ -16,7 +16,8 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to root_path
     else
-      redirect_to root_path
+      flash[:notice] = '画像、テキスト、料理名を入力してください'
+      redirect_to new_recipe_path
     end
   end
 
@@ -38,8 +39,12 @@ class RecipesController < ApplicationController
 
   def update
     recipe = Recipe.find(params[:id])
-    recipe.update(recipe_params)
-    redirect_to root_path
+    if recipe.update(recipe_params)
+      redirect_to root_path
+    else
+      flash[:alert] = '画像、テキスト、料理名を入力してください'
+      render edit_recipe_path
+    end
   end
 
   def search
