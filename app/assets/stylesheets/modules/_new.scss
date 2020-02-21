@@ -4,6 +4,17 @@
   
 }
 
+.logo2{
+  background-color: #fff8dc;
+}
+
+.logo22{
+  padding-top: 10px;
+  background-color: #fff8dc;
+  margin: 0 auto;
+  display: block;
+}
+
 .main{
   background-color:#fff8dc;
   height: 100vh;
@@ -64,6 +75,13 @@
       background-color:#ffffe0;
       border:solid burlywood 2px;
       border-radius:10px;
+      transition: all 0.3s ease-out;
+    }
+
+    .submit:hover{
+      background-color: burlywood;
+      color: white;
+      transition: all 0.3s ease-out;
     }
   }
 }
