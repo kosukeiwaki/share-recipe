@@ -52,7 +52,7 @@
       .favorite
         お気に入りのレシピ
       %ul 
-        -if @recipes.present?
+        -if @likes.present?
           - @likes.each do |like|
             - recipe = Recipe.find_by(id: like.recipe_id)
             %li= link_to recipe.title, "/recipes/#{recipe.id}", method: :get
