@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: share-recipe_production
-  username: share-recipe
-  password: <%= ENV['SHARE-RECIPE_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
