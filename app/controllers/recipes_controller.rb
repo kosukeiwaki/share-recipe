@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all.order(created_at: :desc)
-    @likes = Like.where(user_id: current_user.id)
+    # @likes = Like.where(user_id: current_user.id)
   end
 
   def new
@@ -11,8 +11,8 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @recipe.user_id = current_user.id
-    @recipe.name = current_user.name
+    # @recipe.user_id = current_user.id
+    # @recipe.name = current_user.name
     if @recipe.save
       redirect_to root_path
     else
