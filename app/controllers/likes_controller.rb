@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-    before_action :authenticate_user!
+    # before_action :authenticate_user!
     
     def create
       @like = current_user.likes.create(recipe_id: params[:recipe_id])
