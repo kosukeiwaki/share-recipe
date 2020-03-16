@@ -7,14 +7,7 @@ class User < ApplicationRecord
          has_many :recipes
          has_many :likes
 
-        #  def show_users
-        #     @users = Group.find[params[:id]]
-        #     if @users.present?
-        #       <% @users.each do|user| %>
-        #        <%= user.name %>
-        #        <% end %>
-        #     else
-        #       'メンバーがいません'
-        #     end
-        #  end
+         def already_liked?(recipe)
+          likes.exists?(recipe_id: recipe.id)
+        end
 end
