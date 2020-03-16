@@ -55,6 +55,7 @@ gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'bootstrap', '~> 4.1.1'
 gem 'devise'
 
 group :production do

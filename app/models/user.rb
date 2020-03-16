@@ -4,13 +4,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true
+         has_many :recipes
+         has_many :likes
 
-  has_many :comments
-  has_many :recipes
-  has_many :likes
-  has_many :liked_posts, through: :likes
-  def already_liked?(recipe)
-    self.likes.exists?(recipe_id: recipe.id)
-  end
+        #  def show_users
+        #     @users = Group.find[params[:id]]
+        #     if @users.present?
+        #       <% @users.each do|user| %>
+        #        <%= user.name %>
+        #        <% end %>
+        #     else
+        #       'メンバーがいません'
+        #     end
+        #  end
 end

@@ -2,13 +2,13 @@
 
   .header
     .header__left
-      -# = current_user.name
+      = current_user.name
       さんのマイページ
     .header__right
-      -# = link_to edit_user_path(current_user),class:'edit_user' do
+      = link_to edit_user_path(current_user),class:'edit_user' do
         =icon('fas','user-cog')
         ユーザー情報変更
-      -# = link_to destroy_user_session_path(current_user),method: :delete do
+      = link_to destroy_user_session_path(current_user),method: :delete do
         =icon('fas','sign-out-alt')
         ログアウト
 
