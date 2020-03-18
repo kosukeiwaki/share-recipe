@@ -12,23 +12,22 @@
         =icon('fas','sign-out-alt')
         ログアウト
 
-  %section.section1
-    .logo
-      = image_tag "logo.png", size: "200x50", alt: "test"
+  %section.section1.container
+    .row
+      .logo.col-md-4.col-12
+        = image_tag "logo.png", size: "200x50", alt: "test"
 
-    .search-box
-      = form_tag recipes_searches_path,class:'search-text', method: :get do |f|
+      = form_tag recipes_searches_path,class:'search-text col-md-4 col-12', method: :get do |f|
         = text_field_tag :keyword,'',class:"search-input",id:"search"
         = submit_tag "検索", class: "search-btn"
 
-    .post
-      %a.post{:href => "/recipes/new"} 
+      %a.post.col-md-4.col-12{:href => "/recipes/new"} 
         =icon('fas', 'edit')
         %p今日のご飯をシェア
 
   %section.section2
     %div.weekrecipe.detailshow
-      = image_tag "banner.png", size: "610x190", alt: "test",class:'modalshow'
+      = image_tag "banner.png", size: "400x150", alt: "test",class:'modalshow'
       .memoryrecipedetail-modal
         .modal
           .close-modal
@@ -47,51 +46,52 @@
           楽しんでいただけますと幸いです。
 
 
-  %section.section3
-    .servicesBar
-      .favorite
-        お気に入りのレシピ
-      %ul 
-        -if @likes.present?
-          - @likes.each do |like|
-            - recipe = Recipe.find_by(id: like.recipe_id)
-            %li= link_to recipe.title, "/recipes/#{recipe.id}", method: :get
-        -else
-          no favorite
+  %section.section3.container
+    .row
+      .centerBar.col-md-8.col-12
+        .postBox
+          - @recipes.each do |recipe| 
+            .recipeHeader
+              = recipe.name
+              さんの今日のご飯
+              .time
+                = recipe.created_at.strftime("%Y年%m月%d日")
+            .container
+              .row
+                .recipeDetail.col-md-6.col-12
+                  .recipeImage
+                    = image_tag recipe.image, size: "300x180" if recipe.image.present?
+                  -# .recipeImage{:style => "background-image: url(#{recipe.image});"}
+                .recipeBox.col-md-6.col-12
+                  .recipeTitle
+                    料理名：
+                    = recipe.title
+                  .recipememory
+                    思い出：
+                    = recipe.text             
+                  .comment
+                    = link_to '詳しく見る', "/recipes/#{recipe.id}", method: :get
+      .col-md-1
+      .servicesBar.col-md-3.col-12
+        .favorite
+          お気に入りのレシピ
+        %ul 
+          -if @likes.present?
+            - @likes.each do |like|
+              - recipe = Recipe.find_by(id: like.recipe_id)
+              %li= link_to recipe.title, "/recipes/#{recipe.id}", method: :get
+          -else
+            no favorite
       
         
-      .favorite
-        過去のご飯
-      %ul
-        - if @recipes.present?
-          -current_user.recipes.each do|recipe|
-            %li= link_to recipe.title, "/recipes/#{recipe.id}", method: :get
-        -else
-          no recipes
-
-
-    .centerBar
-      .postBox
-        - @recipes.each do |recipe| 
-          .recipeHeader
-            = recipe.name
-            さんの今日のご飯
-            .time
-              = recipe.created_at.strftime("%Y年%m月%d日")
-          .recipeDetail
-            .recipeImage
-              = image_tag recipe.image, size: "300x180" if recipe.image.present?
-            -# .recipeImage{:style => "background-image: url(#{recipe.image});"}
-            .recipeBox
-              .recipeTitle
-                料理名：
-                = recipe.title
-              .recipememory
-                思い出：
-                = recipe.text             
-              .comment
-                = link_to '詳しく見る', "/recipes/#{recipe.id}", method: :get
-      
+        .favorite
+          過去のご飯
+        %ul
+          - if @recipes.present?
+            -current_user.recipes.each do|recipe|
+              %li= link_to recipe.title, "/recipes/#{recipe.id}", method: :get
+          -else
+            no recipes
   .fotter
     2022 ®️all things you can imagin will be real
 

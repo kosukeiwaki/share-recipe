@@ -7,7 +7,7 @@
     = form_tag recipes_searches_path,class:'search-text', method: :get do |f|
       = text_field_tag :keyword," ",id:"search"
       = submit_tag "検索", class: "search-btn"
-  .centerBar
+  .centerBar.col-md-offset-3.col-md-6.col-md-offset-3
     .backbtn
       =link_to recipes_path(current_user) do
         =icon("fas", "backspace", class:"back")

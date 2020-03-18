@@ -19,7 +19,6 @@
     &__right{
       line-height: 30px;
       font-size: 12px;
-      // width:200px;
       .edit_user{
         margin-right:5px;
       }
@@ -29,40 +28,31 @@
   // ロゴとヘッダーとポスト機能
   .section1{
     width: 60vw;
-    height: 60px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
 
     .logo{
-      width: 200px;
       height: 50px;
-      margin: 10px 0;
+      text-align: center;
+      margin: 5px 0;
     }
-
-    // .search-box{
-    //   // background-color: #ffffff;
-    //   // border:solid burlywood 2px;
-    //   // border-radius: 5px;
-    //   // width: 200px;
-    //   // height:50px;
-    //   // margin: 5px 0;
-    //   // line-height:50px;
-    // }
 
     #search{
       background-color: #ffffff;
       border:solid burlywood 2px;
       border-radius: 5px;
-      width: 200px;
       height:50px;
-      margin: 5px 0;
       line-height:50px;
+      text-align: center;
     }
+
+    .search-text{
+      margin: 5px 0;
+      text-align: center;
+    }
+
 
     .post{
       background-color: #ffffff;
-      width: 200px;
       height:50px;
       margin: 5px 0;
       border-radius:30px;
@@ -73,6 +63,9 @@
       text-decoration: none;
       color:black;
       transition: all 0.3s ease-out;
+      p{
+        margin: 0;
+      }
     }
 
     .post:hover{
@@ -84,10 +77,11 @@
 
   // JSでスライダーを作成する
   .section2{
-    width: 620px;
-    height: 190px;
     margin: 0 auto;
+  }
 
+  .weekrecipe{
+    text-align: center;
   }
 
   .modalshow{
@@ -116,22 +110,17 @@
   background-color: #e6ecf0;
   padding: 20px 0 40px;
   border-radius: 10px;
-  width: 450px;
   height: auto;
   text-align: center;
   }
 
   // バーを4つ作る
   .section3{
-    width: 60vw;
-    height: 600px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
+    width: 80vw;
 
     .servicesBar{
       height: 550px;
-      width: 200px;
       margin: 5px 0;
       background-color: #ffffff;
       border: burlywood 2px solid;
@@ -145,15 +134,15 @@
       ul li {
         line-height: 1.5;
         padding: 0.5em 0;
-        list-style-type: none!important;/*ポチ消す*/
+        list-style-type: none!important;
       }
       
       ul li:before {
         font-family: "Font Awesome 5 Free";
         content: "\f00c";
         position: absolute;
-        left : 1em; /*左端からのアイコンまで*/
-        color: #ffb03f; /*アイコン色*/
+        left : 1em; 
+        color: #ffb03f;
       }
 
       .favorite{
@@ -171,7 +160,6 @@
 
     .centerBar{
       margin: 5px 0;
-      width: 640px;
       height: 550px;
       background-color: #ffffff;
       border: burlywood 2px solid;
@@ -191,7 +179,7 @@
           color: white;
           background-color: #f4a460;
           border-radius: 3px;
-          width:300px;
+          width:50%;
           height: 30px;
           line-height: 30px;
           padding-left: 5px;
@@ -207,35 +195,32 @@
           justify-content: start;
           .recipeImage{
             height: 180px;
-            width:300px;
             margin-bottom: 5px;
           }
-          .recipeBox{
-            width:300px;
-            height: 150px;
-            margin-left: 5px;
-          }
-          .recipeTitle{
-            font-size: 25px;
+        }
+        .recipeBox{
+          height: 150px;
+          margin-left: 5px;
+        }
+        .recipeTitle{
+          font-size: 25px;
 
-            .recipememory{
-              overflow: hidden;
+          .recipememory{
+            overflow: hidden;
+          }
+          .comment{
+            .like-btn-unlike{
+              color:#ff2581;
+
             }
-          }
-          
-            .comment{
-              .like-btn-unlike{
-                color:#ff2581;
-
-              }
-              .like-btn {
-                color: #8899a6;
-              }
+            .like-btn {
+              color: #8899a6;
             }
           }
         }
       }
     }
+  }
   
 
 

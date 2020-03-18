@@ -1,5 +1,6 @@
 @import "reset";
-// @import "bootstrap";
+// @import "bootstrap-sprockets";
+@import "bootstrap";
 @import "modules/recipe";
 @import "modules/search";
 @import "font-awesome-sprockets";

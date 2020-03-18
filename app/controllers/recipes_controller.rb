@@ -56,6 +56,16 @@ class RecipesController < ApplicationController
     end
   end
 
+  # def random
+  #   @randoms = Recipe.order(“RAND()“).limit(1)
+  #   @random = Recipe.new
+  #   if params[:submit]
+  #     @random.score += 1
+  #   elsif params[:btn2]
+  #     @random.score -= 1
+  #   end
+  # end
+
   private
   def recipe_params
     params.require(:recipe).permit(:name, :title, :image, :text)
