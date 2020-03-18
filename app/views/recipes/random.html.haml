@@ -1,0 +1,29 @@
+.header
+.logo2
+  = image_tag "透過2.png", size: "400x100", alt: "test",class:"logo22"
+.main
+  .centerBar.col-md-offset-3.col-md-6.col-md-offset-3
+    .backbtn
+      =link_to recipes_path(current_user) do
+        =icon("fas", "backspace", class:"back")
+    .postBox
+      - @randoms.each_with_index do |recipe|
+        .recipeHeader
+          = recipe.name
+          さんの今日のご飯
+          .time
+            = recipe.created_at.strftime("%Y年%m月%d日")
+        .container
+          .row
+            .recipeDetail.col-md-6.col-12
+              .recipeImage
+                = image_tag recipe.image, size: "300x180" if recipe.image.present?
+            .recipeBox.col-md-6.col-12
+              .recipeTitle
+                料理名：
+                = recipe.title
+              .recipememory
+                思い出：
+                = recipe.text             
+              .comment
+                = link_to '詳しく見る', "/recipes/#{recipe.id}", method: :get

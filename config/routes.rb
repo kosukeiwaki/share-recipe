@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update, :destroy]
   resources :recipes do 
+    collection do
+      get 'random'
+    end
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :show]
   end

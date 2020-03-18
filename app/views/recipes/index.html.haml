@@ -27,7 +27,9 @@
 
   %section.section2
     %div.weekrecipe.detailshow
-      = image_tag "banner.png", size: "400x150", alt: "test",class:'modalshow'
+      = link_to random_recipes_path do
+        %button.post
+          今日のご飯を決める
 
   %section.section3.container
     .row
