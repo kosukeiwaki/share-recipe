@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :recipes do
     resources :searches, only: :index
   end
+
   resources :users, only: [:edit, :update, :destroy]
   resources :recipes do 
     resources :likes, only: [:create, :destroy]

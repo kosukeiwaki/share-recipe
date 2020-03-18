@@ -18,15 +18,17 @@
           さんの今日のご飯
           .time
             = recipe.created_at.strftime("%Y年%m月%d日")
-        .recipeDetail
-          .recipeImage
-            = image_tag recipe.image, size: "300x180" if recipe.image.present?
-          .recipeBox
-            .recipeTitle
-              料理名：
-              = recipe.title
-            .recipememory
-              思い出：
-              = recipe.text             
-            .comment
-              = link_to '詳しく見る', "/recipes/#{recipe.id}", method: :get
+        .container
+          .row
+            .recipeDetail.col-md-6.col-12
+              .recipeImage
+                = image_tag recipe.image, size: "300x180" if recipe.image.present?
+            .recipeBox.col-md-6.col-12
+              .recipeTitle
+                料理名：
+                = recipe.title
+              .recipememory
+                思い出：
+                = recipe.text             
+              .comment
+                = link_to '詳しく見る', "/recipes/#{recipe.id}", method: :get

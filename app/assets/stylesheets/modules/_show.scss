@@ -21,7 +21,6 @@
   height: 100%;
 
   .postBoxshow{
-    width:50%;
     background-color:#ffffff;
     border: solid burlywood 2px;
     margin:0 auto;
@@ -31,8 +30,12 @@
 
     .contents{
       height: 500px;
-      width:500px;
       margin:40px auto;
+
+      img{
+        display: block;
+        margin: 0 auto;
+      }
 
       .maintitle{
         background-color:#fff8dc ;

@@ -2,52 +2,53 @@
 .logo2
   = image_tag "透過2.png", size: "400x100", alt: "test",class:"logo22"
 .main
-  .postBoxshow
-    .backbtn
-      =link_to recipes_path(current_user) do
-        =icon("fas", "backspace", class:"back")
-    .contents.row
-      = @recipe.name
-      さんが
-      = @recipe.created_at.strftime("%Y年%m月%d日")
-      に食べたご飯
-      = image_tag @recipe.image, size: "500x300" if @recipe.image.present?
-      .maintitle
-        =icon("fas","utensils") 
-        料理名 
-      .mainfood   
-        = simple_format(@recipe.title)
-      .maindetail
-        =icon("fas","utensils") 
-        思い出とレシピ 
-      .mainmemory  
-        = simple_format(@recipe.text)
-      - if user_signed_in? && current_user.id == @recipe.user_id
-        .more
-          %ul.more_list
-            %li
-              = link_to '編集', "/recipes/#{@recipe.id}/edit", method: :get, class:"edit"
-            %li
-              = link_to '削除', "/recipes/#{@recipe.id}", method: :delete, class:"delete"
+  .row
+    .postBoxshow.col-md-offset-3.col-md-6.col-md-offset-3
+      .backbtn
+        =link_to recipes_path(current_user) do
+          =icon("fas", "backspace", class:"back")
+      .contents
+        = @recipe.name
+        さんが
+        = @recipe.created_at.strftime("%Y年%m月%d日")
+        に食べたご飯
+        = image_tag @recipe.image, size: "300x200" if @recipe.image.present?
+        .maintitle
+          =icon("fas","utensils") 
+          料理名 
+        .mainfood   
+          = simple_format(@recipe.title)
+        .maindetail
+          =icon("fas","utensils") 
+          思い出とレシピ 
+        .mainmemory  
+          = simple_format(@recipe.text)
+        - if user_signed_in? && current_user.id == @recipe.user_id
+          .more
+            %ul.more_list
+              %li
+                = link_to '編集', "/recipes/#{@recipe.id}/edit", method: :get, class:"edit"
+              %li
+                = link_to '削除', "/recipes/#{@recipe.id}", method: :delete, class:"delete"
 
-          
-      .commentBox
-      - if current_user
-        = form_for [@recipe , @recipe.comments.build],id:"new_comment" do |f|
-          = f.text_area :text, placeholder: "コメント", rows: "2",class:"textbox"
-          = f.submit "送信",class:"form__submit"
-      %h4.commenttitle |コメント一覧
-      .comments
-      - if @comments
-        - @comments.each do |comment|
-          %p
-            = comment.user.name
-            ：
-            = comment.text 
-            %br 
-      - if current_user.already_liked?(@recipe)
-        = button_to 'リストから外す', recipe_like_path(@recipe), method: :delete,class:"like-btn"
-      - else
-        = button_to 'お気に入りリストに追加', recipe_likes_path(@recipe),class:"like-btn"
+            
+        .commentBox
+        - if current_user
+          = form_for [@recipe , @recipe.comments.build],id:"new_comment" do |f|
+            = f.text_area :text, placeholder: "コメント", rows: "2",class:"textbox"
+            = f.submit "送信",class:"form__submit"
+        %h4.commenttitle |コメント一覧
+        .comments
+        - if @comments
+          - @comments.each do |comment|
+            %p
+              = comment.user.name
+              ：
+              = comment.text 
+              %br 
+        - if current_user.already_liked?(@recipe)
+          = button_to 'リストから外す', recipe_like_path(@recipe), method: :delete,class:"like-btn"
+        - else
+          = button_to 'お気に入りリストに追加', recipe_likes_path(@recipe),class:"like-btn"
 
 
