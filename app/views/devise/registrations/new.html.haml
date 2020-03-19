@@ -3,7 +3,7 @@
     .account-page__inner--left.account-page__header
       %h2 Create Account
       %h5 新規アカウントの作成
-      = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
+      = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post, class:'googlebtn' 
       = link_to "Sign up", new_registration_path(resource_name), class: 'btn'
     %br/
     .account-page__inner--right.user-form
