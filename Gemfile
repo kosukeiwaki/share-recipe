@@ -58,6 +58,8 @@ gem 'mini_magick'
 gem 'bootstrap', '~> 4.1.1'
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
 
 group :production do
   gem 'unicorn', '5.4.1'

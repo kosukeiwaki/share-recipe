@@ -23,3 +23,23 @@
     background-color: alert_orange;
   }
 }
+
+button {
+  -webkit-appearance: none;
+  background-color: rgba(0, 0, 0, 0.32);
+  background-image: none;
+  border: none;
+  border-radius: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1em;
+  margin: 10px;
+  padding: 0.6em 2em;
+  text-decoration: none;
+}
+
+button:hover,
+button:focus {
+  outline: none;
+}

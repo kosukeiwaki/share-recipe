@@ -3,6 +3,7 @@
     .account-page__inner--left.account-page__header
       %h2 Log in
       %h5 登録しているユーザーでログイン
+      = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post
       = render "devise/shared/links"
     .account-page__inner--right.user-form
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|

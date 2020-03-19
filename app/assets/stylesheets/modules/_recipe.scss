@@ -4,6 +4,7 @@
 
 .body{
   background-color: #fff8dc	;
+  height: 100vh;
 
   .header{
     background-color: #ffffff;
@@ -73,6 +74,12 @@
       color: white;
       transition: all 0.3s ease-out;
     }
+
+    button{
+      width: 100%;
+    }
+
+   
   }
 
   // JSでスライダーを作成する
@@ -138,7 +145,7 @@
       padding: 10px 0;
       .postBox{
         margin: 10px;
-        height: 85%;
+        height: 100%;
         position: relative;
         padding: 5px 0 ;
         overflow:scroll;
