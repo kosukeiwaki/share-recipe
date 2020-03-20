@@ -155,10 +155,10 @@ deviseを利用したログイン機能を実装しています。
 omniauthというgemを使って実装しております。
 
 通常のログイン
-![demo](https://gyazo.com/https://gyazo.com/1230c907ec25218144b7f85d163b0d67/raw)
+![demo](https://gyazo.com/1230c907ec25218144b7f85d163b0d67/raw)
 
 googleでのログイン(ローカルのみ)
-![demo](https://gyazo.com/https://gyazo.com/f816d8d7b80c19e4e19886108fa1be4b/raw)
+![demo](https://gyazo.com/f816d8d7b80c19e4e19886108fa1be4b/raw)
 
 
 
@@ -292,19 +292,19 @@ $(function(){
 
 ### 実際の画面
 
-![demo](https://gyazo.com/https://gyazo.com/90a6b0cceca132cd5466fcca537e1715/raw)
+![demo](https://gyazo.com/90a6b0cceca132cd5466fcca537e1715/raw)
 
 
 ※こちら、連続で投稿すると表示のバグが起きてしまいます。
 
-![demo](https://gyazo.com/https://gyazo.com/a82738efbba140b5ff9d156a65a315e7/raw)
+![demo](https://gyazo.com/a82738efbba140b5ff9d156a65a315e7/raw)
 
 
 
 ## ランダム取得機能
 ユーザーが献立を決める際の意思決定時間を早める為、レシピをランダムで取得する機能を実装しました。
 
-![demo](https://gyazo.com/https://gyazo.com/b1512c37087611ed4cf4ec7a3443fb21/raw)
+![demo](https://gyazo.com/b1512c37087611ed4cf4ec7a3443fb21/raw)
 
 
 randomアクションを作成し、recipeにrouteをネストさせています。
@@ -369,7 +369,7 @@ end
 
 
 # 全体のUI
-![demo](https://gyazo.com/https://gyazo.com/ee0b69f36c6f14ee70bf8e0a8444599d/raw)
+![demo](https://gyazo.com/ee0b69f36c6f14ee70bf8e0a8444599d/raw)
 
 ログインすると、マイページ（root）に飛ぶようになっています。左下の画面で過去のユーザーが投稿したレシピが見れるようになっており、右のサイドバーにお気に入り、自分の過去のレシピが表示されるようになっております。
 
