@@ -3,6 +3,6 @@ class Comment < ApplicationRecord
   validates :recipe_id, {presence: true}
   validates :text, presence: true
 
-  belongs_to :recipe
-  belongs_to :user
+  belongs_to :recipe, dependent: :destroy
+  belongs_to :user, dependent: :destroy
 end

@@ -19,9 +19,6 @@
             = f.label :email
           .field-input
             = f.email_field :email
-        - if @sns_id.present?
-          = hidden_field_tag :sns_auth, true
-        - else
           .field
             .field-label
               = f.label :password
@@ -35,3 +32,8 @@
               = f.password_field :password_confirmation, autocomplete: "off"
         .actions
           = f.submit "Create Account", class: 'btn'
+
+
+        -# - if @sns_id.present?
+        -#   = hidden_field_tag :sns_auth, true
+        -# - else

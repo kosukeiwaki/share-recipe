@@ -7,8 +7,9 @@ class User < ApplicationRecord
          has_many :recipes
          has_many :likes
          has_many :sns_credentials
+         has_many :comments
 
-         def already_liked?(recipe)
+        def already_liked?(recipe)
           likes.exists?(recipe_id: recipe.id)
         end
 
